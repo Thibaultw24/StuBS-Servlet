@@ -106,7 +106,7 @@
                         <!--       <project><build><finalName>           -->
                         <filename>${project.build.finalName}.war</filename>
                         <!-- !!!!!!! REPLACE WITH YOUR LOCAL VM IP ADDRESS !!!!! -->
-                        <hostname>192.168.178.71</hostname>
+                        <hostname>192.168.195.130</hostname>
                         <port>9990</port>
                         <username>student</username>
                         <password>student</password>

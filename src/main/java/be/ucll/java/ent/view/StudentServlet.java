@@ -21,11 +21,7 @@ public class StudentServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // 1. Log the number of records that the database is currently holding
-        // long cnt = studentBean.countStudents();
-        // this.getServletContext().log("Nr of students in the database: " + cnt);
-
-        // Proceed to the JSP page with no further input (Attributes)
+        // Just proceed to the JSP page with no further input (Attributes)
         request.getRequestDispatcher("studentinfo.jsp").forward(request, response);
     }
 
@@ -33,9 +29,9 @@ public class StudentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         // Op welke knop werd er gedrukt?
-        String action = request.getParameter("action");
+        String actie = request.getParameter("actie");
 
-        // Data van de input boxen ophalen en ID omzetten naar een integer.
+        // Data van de input boxen ophalen en ID omzetten naar een long.
         String studentIdStr = request.getParameter("studentId");
         long studentId = 0L;
         if (studentIdStr != null && !studentIdStr.trim().equals("")) {
@@ -51,19 +47,19 @@ public class StudentServlet extends HttpServlet {
         String infoMsg = "";
         String errMsg = "";
 
-        // Data Transfer Object
+        // Data Transfer Object voorbereiden
         StudentDTO dto;
         try {
-            if ("Toevoegen".equalsIgnoreCase(action)) {
-                dto = new StudentDTO(0, naam);
+            if ("Toevoegen".equalsIgnoreCase(actie)) {
+                dto = new StudentDTO(naam);
                 long id = studentEJB.createStudent(dto);
                 infoMsg = "Student aangemaakt met id " + id;
-            } else if ("Wijzigen".equalsIgnoreCase(action)) {
+            } else if ("Wijzigen".equalsIgnoreCase(actie)) {
                 dto = new StudentDTO(studentId, naam);
                 studentEJB.updateStudent(dto);
-            } else if ("Verwijderen".equalsIgnoreCase(action)) {
+            } else if ("Verwijderen".equalsIgnoreCase(actie)) {
                 studentEJB.deleteStudent(studentId);
-            } else if ("Zoeken".equalsIgnoreCase(action)) {
+            } else if ("Zoeken".equalsIgnoreCase(actie)) {
                 if (studentId > 0) {
                     dto = studentEJB.getStudentById(studentId);
                     ArrayList<StudentDTO> al = new ArrayList<>();

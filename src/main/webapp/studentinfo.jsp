@@ -35,9 +35,9 @@
         </tr>
         <tr>
             <td colspan="2">
-                <input type="submit" name="action" value="Toevoegen"/>
-                <input type="submit" name="action" value="Wijzigen"/>
-                <input type="submit" name="action" value="Verwijderen"/>
+                <input type="submit" name="actie" value="Toevoegen"/>
+                <input type="submit" name="actie" value="Wijzigen"/>
+                <input type="submit" name="actie" value="Verwijderen"/>
             </td>
         </tr>
     </table>
@@ -56,7 +56,7 @@
         </tr>
         <tr>
             <td colspan="3">
-                <input type="submit" name="action" value="Zoeken"/>
+                <input type="submit" name="actie" value="Zoeken"/>
             </td>
         </tr>
     </table>

@@ -3,7 +3,9 @@ package be.ucll.java.ent.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
-// Data Transfer Object for Student information between presentation and business logic layer
+// Data Transfer Object for Student information between layers
+//   This Java class is sometimes called a POJO - Plain Old Java Object
+//   meaning it contains just data and no "programming logic" statements
 public class StudentDTO implements Serializable {
 
     private long id;
