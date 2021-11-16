@@ -46,7 +46,7 @@ public class StudentEJBTest {
     @Test // Test een student ID 0
     public void getStudentById0(){
         expectedEx.expect(RuntimeException.class);
-        expectedEx.expectMessage("Ongeldig ID: 0");
+        expectedEx.expectMessage("Ongeldig ID");
 
         ejb.getStudentById(0);
     }
@@ -54,7 +54,7 @@ public class StudentEJBTest {
     @Test // Test een student ID met een negatief getal
     public void getStudentByIdNegGetal(){
         expectedEx.expect(RuntimeException.class);
-        expectedEx.expectMessage("Ongeldig ID: -1");
+        expectedEx.expectMessage("Ongeldig ID");
 
         ejb.getStudentById(-1);
     }
@@ -107,7 +107,7 @@ public class StudentEJBTest {
     @Test
     public void updateStudent0() {
         expectedEx.expect(IllegalArgumentException.class);
-        expectedEx.expectMessage("Gelieve zowel een ID als een naam in te geven.");
+        expectedEx.expectMessage("Gelieve data in te geven.");
 
         StudentDTO student = new StudentDTO();
         student.setId(0);
